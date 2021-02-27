@@ -25,9 +25,11 @@ def new_pitch():
         elif category == 'Punch Lines':
             return redirect(url_for('main.punch_lines'))
         
-        elif category == 'Pick-Up Lines':
-            return redirect(url_for('main.pick_up'))
+        elif category == 'Pickup Lines':
+            return redirect(url_for('main.pickup_lines'))
         
         else:
             return redirect(url_for('.index'))
+
+    return render_template('new_pitch.html', review_form=form)
 
