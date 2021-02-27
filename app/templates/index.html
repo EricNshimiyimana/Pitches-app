@@ -1,2 +1,80 @@
+{% extends 'base.html' %}
 
-    <h1>Hello</h1>
+{% block content%}
+
+    <div class="container text-center">
+        <h1>PITCHES</h1>
+        <h2><a class="btn blue-gradient" href="{{url_for('main.new_pitch')}}">Pitch your idea</a></h2>
+
+    </div>
+ 
+    <div class="container">
+
+        <!-- Card -->
+        <div class="card card-image">
+        
+            <!-- Content -->
+            <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+                <div>
+                    <h5 class="pink-text"><i class="fas fa-chart-pie"></i> Product</h5>
+                    <h3 class="card-title pt-2"><strong>Product Pitches</strong></h3>
+                    <p>Sell your products here</p>
+                    <a class="btn btn-pink"><i class="fas fa-clone left"></i> View Pitches</a>
+                </div>
+            </div>
+        
+        </div>
+        <!-- Card -->
+
+        <!-- Card -->
+        <div class="card card-image">
+        
+            <!-- Content -->
+            <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+                <div>
+                    <h5 class="pink-text"><i class="fas fa-chart-pie"></i>Marketing</h5>
+                    <h3 class="card-title pt-2"><strong>Marketing Pitches</strong></h3>
+                    <p>Sell your services, ideas or your business</p>
+                    <a class="btn btn-pink"><i class="fas fa-clone left"></i> View Pitches</a>
+                </div>
+            </div>
+        
+        </div>
+        <!-- Card -->
+
+        <!-- Card -->
+        <div class="card card-image">
+        
+            <!-- Content -->
+            <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+                <div>
+                    <h5 class="pink-text"><i class="fas fa-chart-pie"></i> Punchlines</h5>
+                    <h3 class="card-title pt-2"><strong>Punchlines</strong></h3>
+                    <p>Post your funniest jokes here</p>
+                    <a class="btn btn-pink"><i class="fas fa-clone left"></i> View Punchlines</a>
+                </div>
+            </div>
+        
+        </div>
+        <!-- Card -->
+
+        <!-- Card -->
+        <div class="card card-image">
+        
+            <!-- Content -->
+            <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+                <div>
+                    <h5 class="pink-text"><i class="fas fa-chart-pie"></i> Pickup lines</h5>
+                    <h3 class="card-title pt-2"><strong> Pickup Lines</strong></h3>
+                    <p>Woo and sweep someone off their feet</p>
+                    <a class="btn btn-pink"><i class="fas fa-clone left"></i> View Pickup Lines</a>
+                </div>
+            </div>
+        
+        </div>
+        <!-- Card -->
+
+            
+    </div>
+
+{% endblock%}
