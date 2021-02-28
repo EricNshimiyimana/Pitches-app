@@ -31,3 +31,43 @@ class User(db.Model,UserMixin)
 
     def __repr__(self):
         return f'User{self.username}'
+
+class Pitch(db.Model):
+    __tablename_ = 'pitches'
+    id = db.Column(db.Integer, primary_key = True)
+    pitch = db.Column(db.Text(),nullable = False)
+    category = db.Column(db.String(255), index = True)
+    user_id = db.Column(db.Integer,db.ForeignKey('user.id'))
+    posted = db.Column(db.DateTime,default=datetime.utcnow)
+    like = db.Column(db.Integer,default=1)
+    dislike =db.Column(db.Integer)
+
+    def save_pitch(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_pitches(cls,id):
+        pitches = Pitch.query.filter_by(user_id=id).all()
+        return pitches
+
+class Comment(db.Model):
+    __tablename_ = 'comments'
+    id = db.Column(db.Integer, primary_key=True)
+    comments = db.Column(db.Text())
+    pitch_id = db.Column(db.Integer,db.ForeignKey('pitches.id'))
+    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
+
+    def save_comment(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_comments(cls,pitch_id):
+        comments = Comment.query.filter_by(pitch_id=pitch_id).all()
+
+        return comments
+
+    def __repr__(self):
+        returnf'Comment{self.comments}'
+
