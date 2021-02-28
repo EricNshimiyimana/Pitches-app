@@ -4,7 +4,7 @@ from wtforms.validators import Required
 
 class PitchForm(FlaskForm):
     my_category = SelectField('Category', choices=[('Product,'Product'),('Marketing','Marketing'),('Punch Lines','Punch Lines'),('Pickup Lines', 'Pickup Lines')],validators=[Required()])
-    my_pitches = TextAreaField('Enter Pitch', validators=[Required()])
+    my_pitches = TextAreaField('Enter Your Pitch', validators=[Required()])
     submit = SubmitField('Submit')
     
 class CommentForm(FlaskForm):
@@ -12,5 +12,5 @@ class CommentForm(FlaskForm):
     submit = SubmitField('Submit Comments')
     
 class BioForm(FlaskForm):
-    bio = TextAreaField('Tell us about you.',validators = [Required()])
+    bio = TextAreaField('Tell us about yourself.',validators = [Required()])
     submit = SubmitField('Submit')
