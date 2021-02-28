@@ -14,7 +14,7 @@ def index():
 @main.route('/new_pitch', methods=['GET', 'POST'])
 @login_required
 def new_pitch():
-    form = PitchForm():
+    form = PitchForm()
     if form.validate_on_submit():
         pitch = form.my_pitches.data
         category = form.my_category.data

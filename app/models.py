@@ -8,7 +8,7 @@ from datetime import datetime
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-class User(db.Model,UserMixin)
+class User(db.Model, UserMixin):
     __tablename_ = 'users'
     id = db.Column(db.Integer,primary_key=True)
     username = db.Column(db.String(255),unique=True,index=True)
@@ -69,5 +69,5 @@ class Comment(db.Model):
         return comments
 
     def __repr__(self):
-        returnf'Comment{self.comments}'
+        return f'Comment{self.comments}'
 
