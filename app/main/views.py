@@ -20,6 +20,8 @@ def new_pitch():
         category = form.my_category.data
         new_pitch = Pitch(pitch=pitch,category=category, user_id=current_user.id)
 
+        new_pitch.save_pitch()
+
         if category == 'Product':
             return redirect(url_for('main.product_pitches'))
 
