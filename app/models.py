@@ -8,6 +8,27 @@ from datetime import datetime
 def load_user(user_id):
     return User.query.get(int(user_id))
 
+
+class Comment(db.Model):
+    __tablename_ = 'comments'
+    id = db.Column(db.Integer, primary_key=True)
+    comments = db.Column(db.Text())
+    pitch_id = db.Column(db.Integer,db.ForeignKey('pitch.id'))
+    user_id = db.Column(db.Integer,db.ForeignKey('user.id'))
+
+    def save_comment(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_comments(cls,pitch_id):
+        comments = Comment.query.filter_by(pitch_id=pitch_id).all()
+
+        return comments
+
+    def __repr__(self):
+        return f'Comment{self.comments}'    
+
 class User(db.Model, UserMixin):
     __tablename_ = 'users'
     id = db.Column(db.Integer,primary_key=True)
@@ -51,23 +72,5 @@ class Pitch(db.Model):
         pitches = Pitch.query.filter_by(user_id=id).all()
         return pitches
 
-class Comment(db.Model):
-    __tablename_ = 'comments'
-    id = db.Column(db.Integer, primary_key=True)
-    comments = db.Column(db.Text())
-    pitch_id = db.Column(db.Integer,db.ForeignKey('pitches.id'))
-    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
 
-    def save_comment(self):
-        db.session.add(self)
-        db.session.commit()
-
-    @classmethod
-    def get_comments(cls,pitch_id):
-        comments = Comment.query.filter_by(pitch_id=pitch_id).all()
-
-        return comments
-
-    def __repr__(self):
-        return f'Comment{self.comments}'
 
