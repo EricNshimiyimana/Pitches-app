@@ -10,7 +10,7 @@ def load_user(user_id):
 
 
 class Comment(db.Model):
-    __tablename_ = 'comments'
+    __tablename__ = 'comments'
     id = db.Column(db.Integer, primary_key=True)
     comments = db.Column(db.Text())
     pitch_id = db.Column(db.Integer,db.ForeignKey('pitch.id'))
@@ -30,7 +30,7 @@ class Comment(db.Model):
         return f'Comment{self.comments}'    
 
 class User(db.Model, UserMixin):
-    __tablename_ = 'users'
+    __tablename__ = 'user'
     id = db.Column(db.Integer,primary_key=True)
     username = db.Column(db.String(255),unique=True,index=True)
     email = db.Column(db.String(255),unique=True, index=True)
@@ -54,7 +54,7 @@ class User(db.Model, UserMixin):
         return f'User{self.username}'
 
 class Pitch(db.Model):
-    __tablename_ = 'pitches'
+    __tablename__ = 'pitch'
     id = db.Column(db.Integer, primary_key = True)
     pitch = db.Column(db.Text(),nullable = False)
     category = db.Column(db.String(255), index = True)
