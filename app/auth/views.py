@@ -11,7 +11,7 @@ from ..email import mail_message
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
-        user = User(email= form.email.data, username= form.username.data, password= form.password.data)
+        user = User(email=form.email.data, username=form.username.data, password=form.password.data)
         db.session.add(user)
         db.session.commit()
 
@@ -33,8 +33,8 @@ def login():
 
         flash('Invalid email or password')
 
-        title = 'Pitches Login'
-        return render_template('auth/login.html',login_form=login_form,title=title)
+    title = 'Pitches Login'
+    return render_template('auth/login.html',login_form=login_form,title=title)
 
 @auth.route('/logout')
 @login_required
