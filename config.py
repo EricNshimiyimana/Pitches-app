@@ -2,6 +2,7 @@ import os
 
 class Config:
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Moringa@localhost/pitches'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
     SECRET_KEY = 'eVwLKGWwa3Io7sT4YQB41A'
     UPLOADED_PHOTOS_DEST ='app/static/photos'
     MAIL_SERVER = 'smtp.gmail.com'
