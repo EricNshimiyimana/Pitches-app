@@ -1,17 +1,17 @@
 
 <!--Navbar -->
-<nav class="mb-1 navbar navbar-expand-lg navbar-light warning-color lighten-5">
-    <a class="navbar-brand" href="#">PITCHES</a>
+<nav class="mb-1 navbar navbar-expand-lg" style="background-color: blue;">
+    <a class="navbar-brand" style="color: white; font-weight: 900;" href="#">PITCHES</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
         aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon" ></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav mr-auto" >
+            <li class="nav-item" >
+                <a class="nav-link" href="/" style="color: white; font-weight: 700;">Home</a>
             <li class="nav-item">
-                <a class="nav-link" href="/">Home</a>
-            <li class="nav-item">
-                <a class="nav-link" href="/pitches">Pitches</a>
+                <a class="nav-link" href="/pitches" style="color: white; font-weight: 700;">Pitches</a>
             </li>
         </ul>
 
@@ -24,7 +24,7 @@
                 <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
                     <a class="dropdown-item" href="{{url_for('main.profile',uname=current_user.username)}}">My
                         account</a>
-                    <a class="dropdown-item" href="{{url_for('auth.logout')}}">Logout</a>
+                    <a class="dropdown-item" href="{{url_for('auth.logout')}}" style="color: white; font-weight: 700;">Logout</a>
                 </div>
             </li>
 
@@ -36,12 +36,12 @@
 
             {% else %}
             <li class="nav-item">
-                <a class="nav-link" href="{{url_for('auth.login')}}">
-                    <i class="fab fa-sign-in" aria-hidden="true"></i> Login</a>
+                <a class="nav-link" href="{{url_for('auth.login')}}" style="color: white; font-weight: 700;">
+                    <i class="fab fa-sign-in" aria-hidden="true" ></i> Login</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{url_for('auth.register')}}">
+                <a class="nav-link" href="{{url_for('auth.register')}}" style="color: white; font-weight: 700;">
                     <i class="fab fa-sign-in" aria-hidden="true"></i> Create Account</a>
             </li>
             {%endif%}
