@@ -1,6 +1,7 @@
 from app.models import Pitch
 from app import db
 
+
 def setUp(self):
     self.new_pitch = Pitch(1,'test pass','Marketing','2020-09-22 06:53:12.713576',20,10)
     
@@ -21,4 +22,6 @@ def test_get_pitch_by_id(self):
     self.new_pitch.save_pitch()
     got_pitch = Pitch.get_pitch(1)
     self.assertTrue(len(got_pitch) == 1)
-    
+
+if __name__ == '__main__':
+    unittest.main()
