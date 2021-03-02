@@ -27,7 +27,7 @@ class Comment(db.Model):
         return comments
 
     def __repr__(self):
-        return f'Comment{self.comments}'    
+        return f'Comment {self.comments}'    
 
 class User(db.Model, UserMixin):
     __tablename__ = 'user'
@@ -51,7 +51,7 @@ class User(db.Model, UserMixin):
         db.session.commit()
 
     def __repr__(self):
-        return f'User{self.username}'
+        return f'User {self.username}'
 
 class Pitch(db.Model):
     __tablename__ = 'pitch'
