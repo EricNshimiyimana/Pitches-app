@@ -1,10 +1,10 @@
-text-center mb-0
+{% include 'base.html'%}
 
 {% block content%}
 <div class="container">
 
     <h2 class='amber-text'>Punchlines</h2>
-    <h2 class="btn blue-gradient"><a href="{{url_for('main.new_pitch')}}">Pitch Here</a></h2>
+    <h2 class="btn blue-gradient"><a href="{{url_for('main.new_pitch')}}" style="color: white;">Pitch Here</a></h2>
 
 
     {% for items in punchlines[::-1] %}
@@ -25,8 +25,7 @@ text-center mb-0
                 <!-- Card content -->
                 <div class="card-body elegant-color white-text rounded-bottom">
 
-                    <!-- Social shares button -->
-                    <a class="activator waves-effect mr-4"><i class="fas fa-share-alt white-text"></i></a>
+                  
                     <!-- Title -->
                     <h4 class="card-title">{{items.author.username}}</h4>
                     
@@ -36,7 +35,7 @@ text-center mb-0
                     <p class="card-text white-text mb-4 text-center mb-0">{{items.category}}</p>
                     <hr class="hr-light">
                     <!-- Link -->
-                    <h4 class="card-text text-dark">{{items.pitch}}</h4>
+                    <h4 class="card-text text-light">{{items.pitch}}</h4>
                     <!-- Link -->
                     <a href="{{url_for('main.leave_comment', pitch_id = items.id)}}"
                         class="orange-text d-flex flex-row-reverse p-2">
