@@ -17,7 +17,7 @@
                     {% if user.profile_pic_path %}
 
                     <img src="{{url_for('static',filename=user.profile_pic_path)}}" class="img-fluid"
-                        alt="Profile Image">
+                        alt="Profile Image" width="300">
 
                     {%else%}
 
@@ -78,7 +78,7 @@
     {% if current_user %}
     {% for items in pitch[::-1] %}
 
-<div class="container" >
+<div class="container text-align-center" >
     <div class='row justify-content-center'>
         <div class='col-sm-9 col-md-9 col-lg-9'>
             <!-- Card Dark -->
