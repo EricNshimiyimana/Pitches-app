@@ -1,4 +1,3 @@
 virtual/
 *pyc
 .env
-postgresql+psycopg2://moringa:Moringa@localhost/pitches
