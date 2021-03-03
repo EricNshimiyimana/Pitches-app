@@ -1,4 +1,4 @@
-{% extends 'base.html'%}
+{% include 'base.html'%}
 
 {% block content %}
 <div class="container">
@@ -21,7 +21,7 @@
 
                     {%else%}
 
-                    <h5>You Have Not Set a Profile Picture ! Choose File Then Submit.</h6>
+                    <h5>Set your profile picture</h6>
 
                         {% endif %}
 
@@ -47,7 +47,7 @@
 
                 <p class="font-weight-normal">{{user.bio| capitalize}}</p>
                 {% else %}
-                <p class="font-weight-normal">You have No Bio.</p>
+                <p class="font-weight-normal">Enter your bio.</p>
 
                 {% endif %}
 
@@ -57,10 +57,12 @@
                 <a href="{{url_for('main.update_profile',uname=user.username)}}" class="btn btn-success">New Pitch</a>
 
                 {% if user == current_user %}
+                <br>
+                <br>
                 <form action="{{url_for('main.update_pic',uname=user.username)}}" method="post"
                     enctype="multipart/form-data">
                     <input type="file" name="photo" class="form-group" required><br>
-                    <input class='form-group' type='submit'>
+                    <input class="form-group btn btn-primary" type="submit">
                 </form>
                 {% endif %}
             </div>
@@ -72,49 +74,52 @@
     </div>
     <!-- News jumbotron -->
 
-    <h2 class='amber-text' style='text-decoration:underline;'>My Pitches</h2>
+    <h2 class='amber-text' style='text-decoration:underline; text-align: center;'>My Pitches</h2>
     {% if current_user %}
     {% for items in pitch[::-1] %}
 
-    <div class="container">
-        <div class='row'>
-            <div class='col-sm-9 col-md-9 col-lg-9'>
+<div class="container" >
+    <div class='row justify-content-center'>
+        <div class='col-sm-9 col-md-9 col-lg-9'>
+            <!-- Card Dark -->
+            <div class="card">
 
-                <!-- Card -->
-                <div class="card card-cascade wider">
 
-                    <!-- Card image -->
-                    <div class="view view-cascade gradient-card-header peach-gradient">
+                <a>
+                    <div class="mask rgba-white-slight"></div>
+                </a>
+            </div>
 
-                        <!-- Title -->
-                        <h2 class="card-header-title text-center mb-3">{{items.author.username}}</h2>
-                        <!-- Text -->
-                        <p class="text-center mb-0"><i
-                                class="fas fa-calendar mr-2"></i>{{items.posted.strftime('%Y-%m-%d')}}</p>
-                        <p class="text-center mb-0"><i class="fas fa-list mr-2"></i>{{items.category}}</p>
+            <!-- Card content -->
+            <div class="card-body elegant-color white-text rounded-bottom">
 
-                    </div>
 
-                    <!-- Card content -->
-                    <div class="card-body card-body-cascade text-center">
+                <!-- Title -->
+                <h4 class="card-title">{{items.author.username}}</h4>
 
-                        <!-- Text -->
-                        <h4 class="card-text text-dark">{{items.pitch}}</h4>
-                        <!-- Link -->
-                        <a href="{{url_for('main.leave_comment', pitch_id = items.id)}}"
-                            class="orange-text d-flex flex-row-reverse p-2">
-                            <h5 class="waves-effect waves-light">Comments<i class="far fa-comments ml-2"></i></h5>
-                        </a>
+                <!-- Text -->
+                <p class="text-center mb-0"><i class="fas fa-calendar mr-2"></i>{{items.posted.strftime('%Y-%m-%d')}}
+                </p>
+                <p class="card-text white-text mb-4 text-center mb-0">{{items.category}}</p>
+                <hr class="hr-light">
+                <!-- Link -->
+                <h4 class="card-text text-light">{{items.pitch}}</h4>
 
-                    </div>
-                    <!-- Card content -->
+                <!-- Link -->
+                <a href="{{url_for('main.leave_comment', pitch_id = items.id)}}"
+                    class="orange-text d-flex flex-row-reverse p-2">
+                    <h5 class="waves-effect waves-light">Comments<i class="far fa-comments ml-2"></i></h5>
+                </a>
 
-                </div>
-                <!-- Card -->
 
             </div>
+
         </div>
+        <!-- Card Dark -->
+
     </div>
+</div>
+</div>
     <br>
     {% else%}
 
