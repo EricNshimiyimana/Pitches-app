@@ -2,9 +2,9 @@
 <!--Navbar -->
 <nav class="mb-1 navbar navbar-expand-lg" style="background-color: blue;">
     <a class="navbar-brand" style="color: white; font-weight: 900;" href="#">PITCHES</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
-        aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation" >
-        <span class="navbar-toggler-icon" style="background-color: cornsilk;"></span>
+    <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
+        aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation" style="color: black;">
+        <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent-4" >
         <ul class="navbar-nav mr-auto" >
@@ -19,7 +19,7 @@
             {% if current_user.is_authenticated %}
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
+                    aria-haspopup="true" aria-expanded="false" style="font-weight: 700;">
                     <i class="fas fa-user"></i> Profile </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
                     <a class="dropdown-item" href="{{url_for('main.profile',uname=current_user.username)}}">My
@@ -29,7 +29,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="" style="color: black;">
                     <i class="fab fa-sign-in" aria-hidden="true"></i>{{current_user.username}}</a>
                 </a>
             </li>
