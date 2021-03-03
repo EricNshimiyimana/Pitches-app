@@ -5,14 +5,17 @@ from .. import db
 from . import auth
 from flask_login import login_user, logout_user, login_required
 from ..email import mail_message
+from werkzeug.security import generate_password_hash
 
 
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
-        user = User(email=form.email.data, username=form.username.data, pass_secure=form.password.data)
-        user.save_user()
+        user = User(email=form.email.data, username=form.username.data, pass_secure=generate_password_hash(form.password.data))
+        db.session.add(user)
+        db.session.commit()
+
     
 
         return redirect(url_for('auth.login'))
