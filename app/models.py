@@ -30,7 +30,7 @@ class Comment(db.Model):
         return f'Comment {self.comments}'    
 
 class User(db.Model, UserMixin):
-    __tablename__ = 'user'
+    __tablename__ = "user"
     id = db.Column(db.Integer,primary_key=True)
     username = db.Column(db.String(255),unique=True)
     email = db.Column(db.String(255),unique=True)

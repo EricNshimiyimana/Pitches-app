@@ -150,13 +150,4 @@ def pitch_page():
     pitches = Pitch.query.all()
     user=current_user
     return render_template('pitches.html',pitches=pitches,user=user)
-
-# @main.route('/upvote/<int:like>/<int:pitch_id>')
-# def increment(like,pitch_id):
-#     all_likes = Pitch.query.filter_by(like,pitch_id).all()
-#     likes = int(all_likes) + 1
-#     user_id = user_id
-#     new_like = Pitch(user_id=user_id,pitch_id=pitch_id,likes=like)
-#     new_like.save_pitch()
-    
-#     return render_template('pitches.html',likes=likes)             
+          
